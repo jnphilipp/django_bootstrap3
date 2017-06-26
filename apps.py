@@ -3,5 +3,5 @@
 from django.apps import AppConfig
 
 
-class BootstrapConfig(AppConfig):
-    name = 'bootstrap'
+class DjangoBootstrap3Config(AppConfig):
+    name = 'django-bootstrap3'
