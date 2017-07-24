@@ -1,0 +1,11 @@
+{% load i18n %}
+
+<th {% if colspan %}colspan="{{ colspan }}"{% endif %} {% if rowspan %}rowspan="{{ rowspan }}"{% endif %}>
+    <a href="{{ link|iriencode }}">{% trans column_name %}</a>
+    {% if show_options %}
+        <div class="pull-right">
+            <a href="{{ link|iriencode }}"><span class="glyphicon glyphicon-chevron-{{ sort_icon }}"></span></a>
+            <a href="{{ remove_link|iriencode }}"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+    {% endif %}
+</th>

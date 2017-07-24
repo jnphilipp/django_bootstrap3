@@ -18,3 +18,19 @@ def pagination(context, paginator, page, title=None, *args, **kwargs):
     context['title'] = title
     context['kwargs'] = kwargs
     return context
+
+
+@register.inclusion_tag('bootstrap/sortable_th.html', takes_context=True)
+def sortable_th(context, column_name, o, get_name, get_value, colspan=1, rowspan=1, *args, **kwargs):
+    context['column_name'] = column_name
+    context['colspan'] = colspan
+    context['rowspan'] = rowspan
+    context['sort_icon'] = 'up' if o.startswith('-') else 'down'
+    context['show_options'] = o.endswith(get_value)
+
+    params = '&'.join(['%s=%s' % (k, v) for k, v in kwargs.items() if v])
+    context['link'] = '?%s=%s%s&%s' % (get_name,
+                                       '' if o.startswith('-') else '-',
+                                       get_value, params)
+    context['remove_link'] = '?%s=&%s' % (get_name, params)
+    return context
