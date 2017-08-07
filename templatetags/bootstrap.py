@@ -4,6 +4,16 @@ from django.template import Library
 register = Library()
 
 
+@register.inclusion_tag('bootstrap/css.html')
+def bootstrap_css():
+    return {}
+
+
+@register.inclusion_tag('bootstrap/js.html')
+def bootstrap_js():
+    return {}
+
+
 @register.inclusion_tag('bootstrap/messages.html', takes_context=True)
 def messages(context):
     return {'messages': context['messages']}
