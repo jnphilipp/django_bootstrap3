@@ -1,0 +1,7 @@
+{% if type == "horizontal" %}
+    {% include "bootstrap/form/horizontal.html" %}
+{% elif type == "inline" %}
+    {% include "bootstrap/form/inline.html" %}
+{% elif type == "vertical" %}
+    {% include "bootstrap/form/vertical.html" %}
+{% endif %}
