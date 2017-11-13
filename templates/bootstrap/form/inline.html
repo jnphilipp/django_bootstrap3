@@ -10,7 +10,7 @@
     {% for field in form.visible_fields %}
         <div class="form-group{% if form.errors %} {{ field.errors|yesno:'has-error,has-success' }}{% endif %}">
             {% if labels|default_if_none:True %}
-                <label class="col-sm-3 control-label{% if field.field.required %} required{% endif %}" for="{{ field.auto_id }}">{{ field.label }}:</label>
+                <label class="control-label{% if field.field.required %} required{% endif %}" for="{{ field.auto_id }}">{{ field.label }}:</label>
             {% endif %}
             {{ field }}
             <span class="help-block">{{ field.help_text }}</span>
