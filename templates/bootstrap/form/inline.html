@@ -18,16 +18,18 @@
         </div>
     {% endfor %}
 
-    <div class="form-group">
-        <button class="btn btn-primary" type="submit">
-            <span class="{{ glyphicon|default:"glyphicon glyphicon-save" }}"></span>
-            {% trans button_title|default:"Submit" %}
-        </button>
-        {% if delete_url %}
-            <a class="btn btn-danger" href="{{ delete_url }}">
-                <span class="glyphicon glyphicon-trash"></span>
-                {% trans "Delete" %}
-            </a>
-        {% endif %}
-    </div>
+    {% if btn_submit|default_if_none:True %}
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">
+                <span class="{{ glyphicon|default:"glyphicon glyphicon-save" }}"></span>
+                {% trans button_title|default:"Submit" %}
+            </button>
+            {% if delete_url %}
+                <a class="btn btn-danger" href="{{ delete_url }}">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    {% trans "Delete" %}
+                </a>
+            {% endif %}
+        </div>
+    {% endif %}
 </form>
