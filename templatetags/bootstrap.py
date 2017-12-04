@@ -45,6 +45,14 @@ def _process_field_attributes(field, attr, process):
     return field
 
 
+@register.filter
+def startswith(value, start):
+    if type(value) == str:
+        return value.startswith(start)
+    else:
+        return str(value).startswith(start)
+
+
 @register.filter('append_attr')
 def append_attr(field, attr):
     def process(widget, attrs, attribute, value):
