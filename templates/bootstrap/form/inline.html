@@ -12,7 +12,7 @@
             {% if labels|default_if_none:True %}
                 <label class="control-label{% if field.field.required %} required{% endif %}" for="{{ field.auto_id }}">{{ field.label }}:</label>
             {% endif %}
-            {% if field|startswith:"<input" %}
+            {% if field|startswith:"<input" or field|startswith:"<textarea" %}
                 {{ field|append_attr:"autocomplete:off"|add_class:"form-control" }}
             {% else %}
                 {{ field }}
