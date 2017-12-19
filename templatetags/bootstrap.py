@@ -97,11 +97,14 @@ def pagination(context, paginator, page, title=None, *args, **kwargs):
 
 
 @register.inclusion_tag('bootstrap/form/base.html', takes_context=True)
-def bootstrap_form(context, form, url='', type='horizontal', **kwargs):
+def bootstrap_form(context, form, url='', method='post', type='horizontal',
+                   csrf=True, **kwargs):
     assert type in ['horizontal', 'inline', 'vertical']
     context['form'] = form
     context['url'] = url
+    context['method'] = method
     context['type'] = type
+    context['csrf'] = csrf
     for k, v in kwargs.items():
         context[k] = v
     return context

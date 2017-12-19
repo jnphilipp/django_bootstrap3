@@ -2,8 +2,8 @@
 
 
 {{ form.media }}
-<form action="{{ url }}" method="post" class="form-horizontal" {% if enctype %}enctype="{{ enctype }}"{% endif %}>
-    {% csrf_token %}
+<form action="{{ url }}" method="{{ method }}" class="form-horizontal" {% if enctype %}enctype="{{ enctype }}"{% endif %}>
+    {% if csrf %}{% csrf_token %}{% endif %}
     {% for field in form.hidden_fields %}
         {{ field }}
     {% endfor %}
